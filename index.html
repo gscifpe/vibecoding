@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#176b3a">
+  <meta name="description" content="IFDoces: doces feitos com carinho. Explore o cardápio e faça seu pedido pelo WhatsApp.">
+  <title>IFDoces • Doceria</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header"><a class="brand" href="#" aria-label="IFDoces, início"><span class="brand-icon"><img src="assets/if-logo.png" alt=""></span><span>Doces<span class="brand-small">SABOR QUE FAZ PARTE</span></span></a><nav><button class="mode-link active" data-view="buyer-view">Comprar</button><button class="mode-link" data-view="owner-view">Área do empreendedor</button><button class="cart-toggle" id="open-cart">Meu pedido <span id="cart-count">0</span></button></nav></header>
+  <main>
+    <div id="buyer-view">
+    <section class="hero">
+      <div class="hero-copy"><span class="eyebrow">IFDOCES · DOCES FEITOS COM CARINHO</span><h1>Um carinho<br>em forma de<br><em>doce.</em></h1><p>Receitas caprichadas, ingredientes selecionados e aquele sabor que transforma qualquer momento.</p><a class="primary" href="#cardapio">Explorar cardápio <span>↗</span></a><div class="hero-details"><span>✦ Feito com carinho</span><span>✦ Fresquinho para você</span></div></div>
+      <div class="hero-visual"><div class="circle"></div><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1100&q=85" alt="Bolo decorado para compartilhar"><span class="image-label">UM MOMENTO<br>MAIS DOCE.</span><div class="quality-seal">100%<small>CARINHO</small></div></div>
+    </section>
+    <section class="menu-section" id="cardapio"><div class="section-heading"><div><span class="eyebrow">ESCOLHA SEU MOMENTO</span><h2>O que vai ser hoje<span>?</span></h2></div><p>Preparado com carinho para você.</p></div><div class="menu-tools"><div class="categories" role="group" aria-label="Categorias"><button class="category active" data-category="todos" aria-pressed="true">Todos <span>✦</span></button><button class="category" data-category="doces" aria-pressed="false">Doces</button><button class="category" data-category="bolos" aria-pressed="false">Bolos</button><button class="category" data-category="bebidas" aria-pressed="false">Bebidas</button><button class="category" data-category="salgados" aria-pressed="false">Salgados</button></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar no cardápio" aria-label="Buscar no cardápio"></label></div><div class="product-grid" id="products"></div><p class="empty" id="empty" hidden>Nenhum item encontrado. Experimente outra busca.</p></section>
+    <section class="closing"><span>✿</span><div><h2>Todo dia merece um doce.</h2><p>Escolha seus favoritos. A gente prepara com carinho.</p></div><a href="#cardapio">Monte seu pedido ↗</a></section>
+    </div>
+    <section id="owner-view" hidden><div class="owner-heading"><span class="eyebrow">PAINEL IFDOCES</span><h1>Área do <em>empreendedor.</em></h1><p>Cadastre novos produtos para exibi-los no cardápio dos compradores.</p></div><form id="product-form" class="product-form"><label>Nome do doce<input name="name" required maxlength="60" placeholder="Ex.: Brownie de chocolate"></label><label>Categoria<select name="category"><option value="doces">Doces</option><option value="bolos">Bolos</option><option value="bebidas">Bebidas</option><option value="salgados">Salgados</option></select></label><label>Preço (R$)<input name="price" type="number" min="0.01" step="0.01" required placeholder="12,00"></label><label>Imagem do produto<input name="image" type="file" accept="image/*" required><small>Escolha uma imagem do seu dispositivo (até 1 MB).</small></label><label class="form-wide">Descrição<textarea name="description" required maxlength="220" rows="3" placeholder="Conte o que deixa esse produto especial"></textarea></label><button class="primary" type="submit">Adicionar ao cardápio ↗</button></form><div class="owner-list-heading"><h2>Produtos publicados</h2><p>Você pode remover qualquer produto desta lista.</p></div><div class="owner-products" id="owner-products"></div></section>
+  </main>
+  <footer><a class="footer-brand" href="#">IFDoces.</a><span>Um toque de doçura feito com carinho.</span><span>Cardápio digital · © <span id="year"></span></span></footer>
+  <dialog id="cart-dialog"><div class="cart-heading"><div><span class="eyebrow">BOA ESCOLHA!</span><h2>Meu pedido</h2></div><button id="close-cart" class="icon-button" aria-label="Fechar pedido">×</button></div><div id="cart-items"></div><div class="cart-bottom"><div class="total"><span>Total</span><strong id="cart-total">R$ 0,00</strong></div><p>Ao finalizar, o WhatsApp abrirá com seu pedido. Toque em Enviar na conversa para encaminhá-lo ao estabelecimento. Entrega e pagamento a combinar.</p><button class="primary checkout" id="checkout">Finalizar pelo WhatsApp ↗</button><div id="order-result" hidden><a id="whatsapp-link" class="primary" target="_blank" rel="noopener noreferrer" hidden>Abrir conversa no WhatsApp ↗</a><p id="whatsapp-status" role="status"></p><label for="order-summary">Resumo do pedido:</label><textarea id="order-summary" readonly rows="8"></textarea><button id="copy-order" class="copy-button">Copiar pedido</button></div></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
+
